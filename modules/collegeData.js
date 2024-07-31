@@ -1,18 +1,15 @@
 const fs = require("fs");
-const Sequelize = require("sequelize");
-require("dotenv").config();
+const Sequelize = require('sequelize');
 
-let { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID } = process.env;
-
-// set up sequelize to point to our postgres database
-var sequelize = new Sequelize(PGDATABASE, PGUSER, PGPASSWORD, {
-  host: PGHOST,
-  dialect: "postgres",
-  port: 5432,
-  dialectOptions: {
-    ssl: { rejectUnauthorized: false },
-  },
-  query: { raw: true },
+// Set up Sequelize to connect to the PostgreSQL database
+var sequelize = new Sequelize('ddhebsg9b738cv', 'u4th9rtejvse4e', 'pab67d77ab052e83f30d4bdeb85228233470712187f4898ef4e682b026ff46c5a', {
+    host: 'c8lj070d5ubs83.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
+    dialect: 'postgres',
+    port: 5432,
+    dialectOptions: {
+        ssl: { rejectUnauthorized: false }
+    },
+    query: { raw: true }
 });
 
 var Student = sequelize.define(
